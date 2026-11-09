@@ -81,8 +81,10 @@ _NUMBER_WORDS: dict[str, int] = {
     "thirty": 30,
 }
 
-_ISO_RE = re.compile(r"^(\d{4})-(\d{1,2})-(\d{1,2})$")
-_NUMERIC_DATE_RE = re.compile(r"^(\d{1,2})[/-](\d{1,2})[/-](\d{2}|\d{4})$")
+# Year-first numeric dates: 2025-12-04, 2025/12/04, 2025.12.04
+_ISO_RE = re.compile(r"^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$")
+# Month-first numeric dates: 12/25/2025, 12-25-2025, 12.25.2025
+_NUMERIC_DATE_RE = re.compile(r"^(\d{1,2})[-/.](\d{1,2})[-/.](\d{2}|\d{4})$")
 _MONTH_NAME_DAY_YEAR_RE = re.compile(
     r"^(?P<month>[a-z]+)\s+"
     r"(?P<day>\d{1,2})(?:st|nd|rd|th)?"
