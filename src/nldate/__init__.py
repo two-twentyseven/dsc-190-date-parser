@@ -86,14 +86,14 @@ _ISO_RE = re.compile(r"^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$")
 # Month-first numeric dates: 12/25/2025, 12-25-2025, 12.25.2025
 _NUMERIC_DATE_RE = re.compile(r"^(\d{1,2})[-/.](\d{1,2})[-/.](\d{2}|\d{4})$")
 _MONTH_NAME_DAY_YEAR_RE = re.compile(
-    r"^(?P<month>[a-z]+)\s+"
+    r"^(?P<month>[a-z]+)\.?\s+"
     r"(?P<day>\d{1,2})(?:st|nd|rd|th)?"
     r"(?:,?\s+(?P<year>\d{4}))?$",
     re.IGNORECASE,
 )
 _DAY_MONTH_YEAR_RE = re.compile(
     r"^(?:the\s+)?(?P<day>\d{1,2})(?:st|nd|rd|th)?"
-    r"(?:\s+of)?\s+(?P<month>[a-z]+)"
+    r"(?:\s+of)?\s+(?P<month>[a-z]+)\.?"
     r"(?:,?\s+(?P<year>\d{4}))?$",
     re.IGNORECASE,
 )
